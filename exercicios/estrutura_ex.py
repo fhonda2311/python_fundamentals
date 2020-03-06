@@ -63,27 +63,27 @@ dados = {
 
 # Crie um script em python que receba dois números e que informe ao usuário qual deles é maior.
 
-# n1 = float(input('Entre com a nota 1:'))
-# n2 = float(input('Entre com a nota 2:'))
-# n3 = float(input('Entre com a nota 3:'))
-# n4 = float(input('Entre com a nota 4:'))
+n1 = float(input('Entre com a nota 1:'))
+n2 = float(input('Entre com a nota 2:'))
+n3 = float(input('Entre com a nota 3:'))
+n4 = float(input('Entre com a nota 4:'))
 
-# m = (n1+n2+n3+n4)/4
-# if m >= 7:
-#     print(f'aprovado')
-#     print (f'Sua media eh = {m}')
-# else:
-#     print(f'reprovado')
-#     print (f'Sua media eh = {m}')
-
-
-n1 = int(input('Entre com a numero 1:'))
-n2 = int(input('Entre com a numero 2:'))
-
-if n1 == n2:
-    print('n1 sao iguais n2')
+m = (n1+n2+n3+n4)/4
+if m >= 7:
+     print(f'aprovado')
+     print (f'Sua media eh = {m}')
 else:
-    if n1 > n2:
-        print('n1 eh maior que n2')
-    else:
-        print('n2 maior que n1')
+     print(f'reprovado')
+     print (f'Sua media eh = {m}')
+
+
+# n1 = int(input('Entre com a numero 1:'))
+# n2 = int(input('Entre com a numero 2:'))
+
+# if n1 == n2:
+#     print('n1 sao iguais n2')
+# else:
+#     if n1 > n2:
+#         print('n1 eh maior que n2')
+#     else:
+#         print('n2 maior que n1')
