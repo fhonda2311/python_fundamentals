@@ -80,7 +80,7 @@ dados = {
 n1 = int(input('Entre com a numero 1:'))
 n2 = int(input('Entre com a numero 2:'))
 
-if n1 = n2:
+if n1 == n2:
     print('n1 sao iguais n2')
 else:
     if n1 > n2:
