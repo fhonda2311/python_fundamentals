@@ -24,8 +24,7 @@
 #print(num1+num2)
 
 
-texto = 'super texto  gigante acba aqui.\
+texto = 'super texto  gigante acaba aqui.\
         so que nao.\
-        mas poderia sim.'
-
-print(texto.replace('nao'))  
+        mas poderia.'
+print(texto.replace('e', 'a'))
