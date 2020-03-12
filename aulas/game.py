@@ -1,73 +1,94 @@
+# -*- coding: UTF-8 -*-
+import os
+from time import sleep
 from random import randint
-
-class Personagem():
-    """classe que representa um personagem de um jogo de RPG"""
-    def __init__(self, nome, xp=0, nivel=1):
-        """Inicializando as propriedades de um personagem"""
-        self.nome = nome
-        self.hp = 100
-        self.mp = 100
-        self.xp = xp
-        self.nivel = nivel
-    
-    def subirNivel(self):
-        if self.xp > 99:
-            self.nivel += 1
-            self.xp = 0
-            self.hp = 100
-            self.hp = (self.hp * (0.10 * self.nivel))
-            print('Você subiu de nível!')
-
-    def mataMostro(self, hp_monstro=100):
-        self.poderMonstro = randint(1,100)
-        if self.poderMonstro > 50:
-            self.hp -= 20
-            print(f'Você tomou dano! \n{self.hp}')
-        else:
-            self.hp_monstro = hp_monstro - 40
-            print(f'Monstro tomou dano! \n{self.hp_monstro}')
-            if self.hp_monstro <= 0:
-                self.xp += 10
-                self.hp_monstro = 100
-                subirNivel()
-
-class Mostro():
-    def __init__(self):
-        self.nome = 'Monstro_n1'
-
-    def informacao(self):
-        print(f'Nome do Monstro: {self.nome}')
-
-class Minotauro(Mostro):
-    def __init__(self):
-        self.nome = 'Minotauro_n1'
-
-    def informacao(self):
-        print(f'Nome do Minotauro: {self.nome}')
+from monstros import Minotauro, Orc
+from personagens import Mago, Guerreiro
 
 
+personagem01 = Mago()
+personagem02 = Guerreiro()
+monstro01 = Minotauro()
+monstro02 = Orc()
 
 
-m1 = Mostro()
-m2 = Minotauro()
+def seleciona_personagem():
+    while True:
+        print("\nSelecione o Personagem: ")
+        print("1 - Mago")
+        print("2 - Guerreiro")
+        try:
+            persona = int(input(">>> "))
+            if persona == 1:
+                personagem = personagem01
+                os.system('clear')
+            elif persona == 2:
+                personagem = personagem02
+                os.system('clear')
+            else:
+                raise TypeError("Personagem não encontrado")
+        except ValueError:
+            os.system('clear')
+            print("Digite apenas números válidos")
+            sleep(2)
+            continue
+        except TypeError as t:
+            os.system('clear')
+            print(t)
+            sleep(2)
+            continue
+        seleciona_monstro(personagem)
 
-m1.informacao()
-m2.informacao()
+def seleciona_monstro(personagem):
+    while True:
+        print("\nSelecione o Monstro: ")
+        print("1 - Minotauro")
+        print("2 - Orc")
+        try:
+            monster = int(input(">>> "))
+            if monster == 1:
+                monstro = monstro01
+                os.system('clear')
+
+            elif monster == 2:
+                monstro = monstro02
+                os.system('clear')
+
+            else:
+                raise TypeError("Monstro não encontrado")
+        except ValueError:
+            os.system('clear')
+            print("Digite apenas números válidos")
+            sleep(2)
+            continue
+        except TypeError as t:
+            os.system('clear')
+            print(t)
+            sleep(2)
+            continue
+        principal(personagem, monstro)
+
+def principal(personagem, monstro):
+    dano_personagem = randint(1, 50)
+    dano_monstro = randint(1, 60)
+
+    if dano_monstro < dano_personagem:
+        monstro.hp -= dano_personagem
+        print(f"Monstro tomou dano \nHP {monstro.hp}\nDano: {dano_personagem}")
+        
+        if monstro.hp <= 0:
+            print("Fim de Jogo\nVocê Ganhou")
+            seleciona_personagem()
+    else:
+        personagem.hp -= dano_monstro
+        print(f"Você tomou dano  \nHP: {personagem.hp}\nDano: {dano_monstro}")
+        if personagem.hp <= 0:
+            print('Você perdeu!')
+            seleciona_personagem()
 
 
+seleciona_personagem()
+# seleciona_monstro()
+# principal()
 
-class Mago(Personagem):
-    def ataque(self):
-        print('Magia das trevas')
-
-
-
-class Caveleiro(Personagem):
-
-    def ataque(self):
-        print('Colera do dragão')
-
-
-
-
-
+# print(personagem)

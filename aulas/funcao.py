@@ -43,9 +43,18 @@
 # soma = lambda x,y: x+y
 # print(soma(10,20))
 
-numeros = [1,2,3,4,5,6,7,8,9]
+# numeros = [1,2,3,4,5,6,7,8,9]
 
-dobro = list(map(lambda x: x * 2, numeros))
+# dobro = list(map(lambda x: x * v
 
-print(dobro)
+# personagens = []
+
+# def addpersona(nomepersona):
+#     personagens.append(nomepersona)
+
+#     nome1 = (input('Digite o nome do personagem: '))
+
+# addpersona('{nome1}')
+
+# print(personagens)
 
